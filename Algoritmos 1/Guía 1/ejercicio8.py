@@ -19,7 +19,7 @@ q
 
 e) ((T rue ∧ p) ∧ (¬p ∨ F alse)) → ¬(¬p ∨ q)
 (p ∧ ¬q)
-#NO SON EQUIVALENTES. LA PRIMERA EXPRESIÓN ES A LO MUCHO: not(p and q)
+#NO SON EQUIVALENTES. LA PRIMERA EXPRESIÓN ES TAUTOLOGÍA
 
 
 f) (p ∨ (¬p ∧ q))
@@ -32,10 +32,5 @@ g) ¬(p ∧ (q ∧ s))
 
 h) (p → (q ∧ ¬(q → r)))
 ((¬p ∨ q) ∧ (¬p ∨ (q ∧ ¬r)))
-#Acá me queda 
-# (not p or q) or (q and not r) == (not p or q) and (not p or r)), a continuación, un código para verificar la igualdad"""
-
-def tablita_para_h(p,q,r):
-    return ((not p or q) or (q and not r)) == ((not p or q) and (not p or r))
-
-print(list(tablita_para_h(p,q,r) for p in (True,False) for q in (True,False) for r in (True,False))) #hay un solo caso en el que no es cierto, específicamente cuando p=True, q=True, r=False.
+#EQUIVALENTES
+"""
