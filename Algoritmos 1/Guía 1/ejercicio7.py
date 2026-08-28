@@ -6,7 +6,7 @@ b) ¬(¬p ∨ ¬q) = not(not p or not q)= (p and q)  #por este: ¬(p ∨ q) ≡ 
 
 c) (((p ∧ (¬p ∨ q)) ∨ q) ∨ (p ∧ (p ∨ q))) == p ∨ q
 
-d) (¬p → ¬(p → ¬q)) == TAUTOLOGÍA
+d) (¬p → ¬(p → ¬q)) == CONTINGENCIA
 
 e) (((p → q) ∧ (p ∧ ¬q)) → q) = TAUTOLOGÍA WOW
 
