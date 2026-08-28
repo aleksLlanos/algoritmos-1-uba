@@ -10,6 +10,6 @@ d) (¬p → ¬(p → ¬q)) == TAUTOLOGÍA
 
 e) (((p → q) ∧ (p ∧ ¬q)) → q) = TAUTOLOGÍA WOW
 
-f) ¬((¬(p ∧ q) ∨ (p ∨ q)) → (¬¬p ∨ ¬p))
+f) ¬((¬(p ∧ q) ∨ (p ∨ q)) → (¬¬p ∨ ¬p)) Contradicción
 """
 
