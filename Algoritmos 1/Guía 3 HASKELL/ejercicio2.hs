@@ -1,3 +1,4 @@
+import System.Win32 (COORD(yPos))
 {--
 Ejercicio 2. Especificar e implementar las siguientes funciones, incluyendo su signatura.
 --}
@@ -5,14 +6,27 @@ Ejercicio 2. Especificar e implementar las siguientes funciones, incluyendo su s
 {--
 a) absoluto: calcula el valor absoluto de un número entero.
 --}
+valorAbsoluto :: Integer -> Integer
+valorAbsoluto x
+  | x >= 0    = x
+  | otherwise = -x
 
 {--
 b) maximoAbsoluto: devuelve el máximo entre el valor absoluto de dos números enteros.
 --}
+maxValAbs2 :: Integer -> Integer -> Integer
+maxValAbs2 x y
+  | valorAbsoluto x >= valorAbsoluto y = valorAbsoluto x
+  | otherwise                           = valorAbsoluto y
 
 {--
 c) maximo3: devuelve el máximo entre tres números enteros.
 --}
+
+maxValAbs3 :: Integer -> Integer -> Integer -> Integer {--f:(ZxZxZ) -> Z--}
+maxValAbs3 x y z  {--f(x,y,z)--}
+  | maxValAbs2 x y >= valorAbsoluto z = maxValAbs2 x y {--g(x,y,z)--}
+  | otherwise                         = valorAbsoluto z   
 
 {--
 d) algunoEsCero: dados dos números racionales, decide si alguno es igual a 0 (resolverlo con y sin pattern matching).
