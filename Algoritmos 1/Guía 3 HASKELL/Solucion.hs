@@ -9,5 +9,7 @@
 --  escribir en la terminal la siguiente sintaxis:"nombre_de_la_función argumento"
 
 elDoble :: Integer -> Integer
+elDoble x = 2*x
 
-elDoble deNumero = 2*deNumero
+laSuma :: Integer -> Integer -> Integer
+laSuma x y  = x+y
