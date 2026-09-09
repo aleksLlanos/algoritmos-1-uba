@@ -15,8 +15,9 @@ valorAbsoluto x
 {--
 b) maximoAbsoluto: devuelve el máximo entre el valor absoluto de dos números enteros.
 --}
-maxValAbs2 :: Integer -> Integer -> Integer
-maxValAbs2 x y
+
+maximoAbsoluto :: Integer -> Integer -> Integer
+maximoAbsoluto x y
   | valorAbsoluto x >= valorAbsoluto y = valorAbsoluto x
   | otherwise                           = valorAbsoluto y
 
@@ -24,10 +25,11 @@ maxValAbs2 x y
 c) maximo3: devuelve el máximo entre tres números enteros.
 --}
 
-maxValAbs3 :: Integer -> Integer -> Integer -> Integer {--f:(ZxZxZ) -> Z--}
-maxValAbs3 x y z  {--f(x,y,z)--}
-  | maxValAbs2 x y >= valorAbsoluto z = maxValAbs2 x y {--g(x,y,z)--}
-  | otherwise                         = valorAbsoluto z   
+maximo3 :: Integer -> Integer -> Integer -> Integer {--f:(ZxZxZ) -> Z--}
+maximo3 x y z  {--f(x,y,z)--}
+  | x >= y && x >= z = x
+  | y >= x && y >= z = y
+  | otherwise        = z   
 
 {--
 d) algunoEsCero: dados dos números racionales, decide si alguno es igual a 0 (resolverlo con y sin pattern matching).
@@ -50,10 +52,8 @@ algunoEsCero' _ _ = 0 {--Si la primera y la segunda condición no se cumplen, si
 e) ambosSonCero: dados dos números racionales, decide si ambos son iguales a 0 (resolverlo con y sin pattern matching).
 --}
 
-ambosSonCero :: Float -> Float -> Integer
-ambosSonCero x y
-  | x==0 && y==0 = 1
-  | otherwise = 0
+ambosSonCero :: Float -> Float -> Bool
+ambosSonCero x y = (x == 0 && y == 0)
 
 ambosSonCero' :: Float -> Float -> Integer
 ambosSonCero' 0 0 = 1
@@ -74,8 +74,11 @@ g) sumaDistintos: que dados tres números enteros calcule la suma sin sumar repe
 
 sumaDistintos :: Integer -> Integer -> Integer -> Integer
 sumaDistintos x y z 
-  | x /= y && y /= z && x/=z = x+y+z
-  | otherwise = 0
+  | x == y && y == z = x
+  | x == y           = x + z
+  | x == z           = x + y
+  | y == z           = x + y
+  | otherwise        = x + y + z  
 
 {--
 h) esMultiploDe: dados dos números naturales, decide si el primero es múltiplo del segundo.

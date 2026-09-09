@@ -14,10 +14,7 @@ productoInterno (x1, y1) (x2, y2) = x1 * x2 + y1 * y2
 b) esParMenor: dadas dos tuplas de R × R, decide si cada coordenada de la primera tupla es menor a la coordenada correspondiente de la segunda tupla.
 ----}
 esParMenor :: (Float, Float) -> (Float, Float) -> Bool
-esParMenor (x1, y1) (x2, y2)
-  | (x1 < x2 && y1 < y2) = True
-  | otherwise = False
-
+esParMenor (x1, y1) (x2, y2) = x1 < x2 && y1 < y2
 {----
 c) distancia: calcula la distancia euclídea entre dos puntos de R².
 ----}
@@ -44,11 +41,7 @@ Por ejemplo:
 ----}
 
 esMultiploDe :: Int -> Int -> Bool
-esMultiploDe x y
-  | y == 0         = False  -- Evita la división por cero si x es múltiplo de 0
-  | x `mod` y == 0 = True -- 'mod' devuelve el resto de la división de x entre y. Si el resto es 0, entonces x es múltiplo de y.
-  | otherwise      = False
-
+esMultiploDe x y = x `mod` y == 0
 
 
 sumarSoloMultiplos :: (Int, Int, Int) -> Int -> Int
@@ -68,20 +61,29 @@ posPrimerPar (x, y, z)
   | x `mod` 2 == 0 = 1
   | y `mod` 2 == 0 = 2
   | z `mod` 2 == 0 = 3 
-  | otherwise = 0
+  | otherwise = 4
   
 {----
 g) crearPar :: a -> b -> (a, b): a partir de dos componentes, crea un par con esos valores. Debe funcionar para elementos de cualquier tipo.
 ----}
 
-crearPar :: 
+crearPar :: a -> b -> (a,b)
+crearPar x y = (x, y)
 
 {----
 h) invertir :: (a, b) -> (b, a): invierte los elementos del par pasado como parámetro. Debe funcionar para elementos de cualquier tipo.
 ----}
+
+invertir :: (a, b) -> (b, a)
+invertir (x, y) = (y, x)
 
 {----
 i) Reescribir los ejercicios productoInterno, esParMenor y distancia usando el siguiente renombre de tipos:
 
     type Punto2D = (Float, Float)
 ----}
+
+type Punto2D = (Float, Float)
+
+esParMenor' :: Punto2D -> Punto2D -> Bool
+esParMenor' (x1, y1) (x2, y2) = x1 < x2 && y1 < y2
