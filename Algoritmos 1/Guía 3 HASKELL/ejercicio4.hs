@@ -87,3 +87,9 @@ type Punto2D = (Float, Float)
 
 esParMenor' :: Punto2D -> Punto2D -> Bool
 esParMenor' (x1, y1) (x2, y2) = x1 < x2 && y1 < y2
+
+productoInterno' :: Punto2D -> Punto2D -> Float
+productoInterno' (x1, y1) (x2, y2) = x1 * x2 + y1 * y2
+
+distancia' :: Punto2D -> Punto2D -> Float
+distancia' (x1, y1) (x2, y2) = ((x1-x2)^2+(y1-y2)^2)**(1/2)
