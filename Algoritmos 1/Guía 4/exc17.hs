@@ -34,7 +34,4 @@ comparoDigitosPares :: Integer -> Integer -> Integer
 comparoDigitosPares n m
     | n `mod`10 < m = n
     | otherwise = m
-
-
-
-
+ --commit tonto
