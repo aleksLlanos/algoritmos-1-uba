@@ -1,5 +1,4 @@
-import Data.Time.Format.ISO8601 (yearFormat)
-import GHC.Internal.Natural (Natural)
+
 {--
 Ejercicio 2. Especificar e implementar las siguientes funciones, incluyendo su signatura.
 --}
@@ -53,7 +52,7 @@ e) ambosSonCero: dados dos números racionales, decide si ambos son iguales a 0 
 --}
 
 ambosSonCero :: Float -> Float -> Bool
-ambosSonCero x y = (x == 0 && y == 0)
+ambosSonCero x y = x == 0 && y == 0
 
 ambosSonCero' :: Float -> Float -> Integer
 ambosSonCero' 0 0 = 1
@@ -84,7 +83,7 @@ sumaDistintos x y z
 h) esMultiploDe: dados dos números naturales, decide si el primero es múltiplo del segundo.
 --}
 
-esMultiploDe :: Natural -> Natural -> Bool
+esMultiploDe :: Integer -> Integer -> Bool
 esMultiploDe x y
   | y == 0         = False  -- Evita la división por cero si x es múltiplo de 0
   | x `mod` y == 0 = True -- 'mod' devuelve el resto de la división de x entre y. Si el resto es 0, entonces x es múltiplo de y.

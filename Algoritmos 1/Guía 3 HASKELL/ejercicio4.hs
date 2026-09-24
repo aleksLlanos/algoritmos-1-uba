@@ -1,4 +1,4 @@
-import GHC.Internal.Natural (Natural)
+
 {----
 Ejercicio 4. Especificar e implementar las siguientes funciones utilizando tuplas para representar pares y ternas de números.
 ----}

@@ -32,6 +32,7 @@ sumaPfijo n m
     | m == 0 = 0
     | otherwise = fromIntegral n/fromIntegral m + sumaPfijo n (m-1)
 
+
 sumaRacionales :: Integer -> Integer -> Float
 sumaRacionales n m 
     | n == 0 = 0
@@ -62,9 +63,28 @@ esPrimo p
     
 -- c) Implementar la función sonCoprimos :: Integer -> Integer -> Bool que dados dos números naturales indica si no tienen algún divisor en común mayor estricto que 1.
 
---Para mí lo que hay que hacer es armar una lista de los divisores 
 sonCoprimos :: Integer -> Integer -> Bool 
-buscar divisor
+sonCoprimos n m
+    | n == m    = False -- (Excepto si ambos son 1, ojo con ese caso límite)
+    | otherwise = buscarDivisorComun n m 2
+
+buscarDivisorComun :: Integer -> Integer -> Integer -> Bool
+buscarDivisorComun n m d
+    |d>n || d>m = True  -- ¿Cuál es el límite donde d ya es demasiado grande y devuelves True?
+    | n `mod` d == 0 && m `mod` d == 0 = False -- ¿Qué condición matemática con 'mod' debe cumplir d para que devuelvas False?
+    | otherwise = buscarDivisorComun n m (d + 1)
 
 -- d) Implementar la función nEsimoPrimo :: Integer -> Integer
+
+nEsimoPrimo :: Integer -> Integer
+nEsimoPrimo n
+  | n <= 0    = error "n debe ser mayor o igual a 1"
+  | otherwise = buscarPrimo n 2
+  where
+    buscarPrimo :: Integer -> Integer -> Integer
+    buscarPrimo faltantes candidato
+      | esPrimo candidato && faltantes == 1 = candidato
+      | esPrimo candidato                   = buscarPrimo (faltantes - 1) (candidato + 1)
+      | otherwise                           = buscarPrimo faltantes (candidato + 1)
+
 

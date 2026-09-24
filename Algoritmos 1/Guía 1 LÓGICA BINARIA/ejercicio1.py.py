@@ -4,6 +4,7 @@
 """Ctrl + Alt + n para ejecutar el código en un archivo .py"""
 """Ctrl + , para abrir la configuración de VSCode"""
 """Ctrl + Shift + p para abrir la paleta de comandos"""
+"""Ctrl + k + s"""
 
 # Ok, funciona Python.
 # Estos son comentarios creados con el único fin de darme notitas de recordatorio.
