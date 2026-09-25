@@ -19,19 +19,42 @@ esFibonacci n = recorroFibonacci n 0 1
 
 {--Ejercicio 18. Implementar una función mayorDigitoPar :: Integer -> Integer según la siguiente especificación:
 
+
+
+problema mayorDigitoPar (n: N) : N {
+
+requiere: { True }
+
+asegura: { resultado es el mayor de los dígitos pares de n. Si n no tiene ningún dígito par, entonces resultado es -1. }
+
+}
+
+--}
+
+
+
+{--Ejercicio 18. Implementar una función mayorDigitoPar :: Integer -> Integer según la siguiente especificación: 
 problema mayorDigitoPar (n: N) : N {
     requiere: { True }
     asegura: { resultado es el mayor de los dígitos pares de n. Si n no tiene ningún dígito par, entonces resultado es -1. }
 }
 --}
-
 mayorDigitoPar :: Integer -> Integer
-mayorDigitoPar n
-    | n `div` 10 == 0 && even n = n
-    | n `m` = mayorDigitoPar (comparoDigitosPares (n`div`10) (n `mod` 10))
+mayorDigitoPar i
+    | (i `div` 10 == 0) && (i `mod` 2 == 0) = i -- Si es un único dígito par, que lo devuelva
+    | (i `div` 10 == 0) = -1 --si es un es único número impar, -1
+    | (i `mod` 2 == 0) = comparoDigitos (i `div` 10) (i `mod` 10) --Si tiene más de un dígito, veo si el último es par y si lo es, lo mando a comparoDigitos. Solo se activa si encuentra un par, sino, sigue analizando hasta llegar a los casos
+    | otherwise = mayorDigitoPar (i `div` 10)
+    where
+    comparoDigitos :: Integer -> Integer -> Integer
+    comparoDigitos n m --recibo el número sin su último dígito y su último dígito par
+        | n == 0 = m -- Caso base dice que n llegará a ser 0 y estará acompañado de su mayor par, devolviendo ese par
+        | n `mod` 2 == 0 = comparoDigitos (n `div` 10) (mayorEntre (n`mod`10) m) --si el último dígito es par, hacemos la función acompañado del nuevo mayor par analizado entre el anterior y el último nuevo par
+        | otherwise = comparoDigitos (n `div` 10) m -- si no era par, seguimos con el que ya teníamos
+        where
+        mayorEntre :: Integer -> Integer -> Integer
+        mayorEntre n m
+            | n<=m = m
+            | otherwise = n 
+ 
 
-comparoDigitosPares :: Integer -> Integer -> Integer
-comparoDigitosPares n m
-    | n `mod`10 < m = n
-    | otherwise = m
- --commit tonto
